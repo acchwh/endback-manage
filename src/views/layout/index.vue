@@ -29,6 +29,22 @@
   
 <script>
 export default {
+    name: "layout",
+    data() {
+        return {
+            // 进入某模块时，该模块高亮
+            activeIndex: "/banner/out"
+        }
+    },
+    // 深度监听路由变化
+    watch: {
+        $route: {
+            handler(newVal) {
+                this.activeIndex = newVal.path;
+            },
+            immediate: true,
+        },
+    },
 };
 </script>
   
